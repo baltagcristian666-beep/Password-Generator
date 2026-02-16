@@ -86,3 +86,20 @@ hr{
     margin-top: 10px;
     text-align: center;
 }
+
+.section-two{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;  
+}
+
+#input-char{
+    color: white;
+    margin:0;
+}
+
+.div-char{
+    display: flex;
+    flex-direction: column; /* text deasupra, input dedesubt */
+    gap: 8px; 
+}

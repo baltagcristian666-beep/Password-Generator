@@ -5,6 +5,7 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 let outputsOne = document.querySelector("#outputs-one");
 let outputsTwo = document.getElementById("outputs-two");
 
+let maxChar = 0;
 
 
 function generate(){
@@ -13,17 +14,38 @@ function generate(){
    let passwordArrayOne = [];
    let passwordArrayTwo = [];
    
+   if(getValue()<1){
     for(let i=0; i<16; i++){
-        let currentNumber = Math.floor(Math.random()*characters.length);
-        let currentNumberTwo = Math.floor(Math.random()*characters.length);
-        passwordArrayOne.push(characters[currentNumber]);
-        outputsOne.textContent += passwordArrayOne[i] ;
-        passwordArrayTwo.push(characters[currentNumberTwo]);
-        outputsTwo.textContent += passwordArrayTwo[i] ;
-    }
+            let currentNumber = Math.floor(Math.random()*characters.length);
+            let currentNumberTwo = Math.floor(Math.random()*characters.length);
+            passwordArrayOne.push(characters[currentNumber]);
+            outputsOne.textContent += passwordArrayOne[i] ;
+            passwordArrayTwo.push(characters[currentNumberTwo]);
+            outputsTwo.textContent += passwordArrayTwo[i] ;
+        }
+   } else if(getValue()){
+    for(let i=0; i<getValue(); i++){
+            let currentNumber = Math.floor(Math.random()*characters.length);
+            let currentNumberTwo = Math.floor(Math.random()*characters.length);
+            passwordArrayOne.push(characters[currentNumber]);
+            outputsOne.textContent += passwordArrayOne[i] ;
+            passwordArrayTwo.push(characters[currentNumberTwo]);
+            outputsTwo.textContent += passwordArrayTwo[i] ;
+        }
+        
+   }
+    // console.log(passwordArrayOne);
+    // console.log(passwordArrayTwo);
      
     
 }
+
+function getValue(){
+    
+    maxChar = document.getElementById("numar-charactere").value ;
+    return maxChar;
+}
+
 
 
 
