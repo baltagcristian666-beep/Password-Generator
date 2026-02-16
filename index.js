@@ -2,5 +2,31 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 "/"];
 
 
+let outputsOne = document.querySelector("#outputs-one");
+let outputsTwo = document.getElementById("outputs-two");
+
+
+
+function generate(){
+    outputsOne.textContent = "";
+    outputsTwo.textContent = "";
+   let passwordArrayOne = [];
+   let passwordArrayTwo = [];
+   
+    for(let i=0; i<16; i++){
+        let currentNumber = Math.floor(Math.random()*characters.length);
+        let currentNumberTwo = Math.floor(Math.random()*characters.length);
+        passwordArrayOne.push(characters[currentNumber]);
+        outputsOne.textContent += passwordArrayOne[i] ;
+        passwordArrayTwo.push(characters[currentNumberTwo]);
+        outputsTwo.textContent += passwordArrayTwo[i] ;
+    }
+     
+    
+}
+
+
+
+
 
 

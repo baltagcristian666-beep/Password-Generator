@@ -1,3 +1,88 @@
 body {
     margin: 0;
+    background: #1C1C1C;
+
+
+}
+
+.background{
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    top: 40%;
+}
+
+
+
+#title-one {
+    font-family: Karla;
+    font-weight: 800;
+    font-style: ExtraBold;
+    font-size: 40px;
+    color: #D5D4D8;
+    line-height: 40px;
+    letter-spacing: -2.5%;
+    width: 100%;
+    opacity: 1;
+    margin: 0;
+}
+#title-two{
+  
+    width: 100%;
+    opacity: 1;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    color: #D5D4D8;
+    line-height: 28px;
+    letter-spacing: 0%;
+    margin: 0;
+}
+
+span {
+    color: #55F991;
+}
+
+button{
+    width:fit-content;
+    height: fit-content;
+    opacity: 1;
+    border-radius: 6px;
+    padding-top: 10px;
+    padding-right: 17px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    border: none;
+    gap: 12px;
+    background: #10B981;
+    box-shadow: 0px 1px 2px 0px #0000000D;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+hr{
+    border: 1px solid #2F3E53
+}
+
+.outputs-div{
+    
+    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;      
+}
+
+#outputs-one, #outputs-two{
+    background: #273549;
+    width: 42%;
+    color: #55F991;
+    opacity: 1;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    margin-top: 10px;
+    text-align: center;
 }
