@@ -5,7 +5,7 @@
     <body>
         <div class="background">
         <div class = "title-div">
-        <h1 id="title-one">Generate a <span><br>random password</br></span></h1>
+        <h1 id="title-one">Generate a <span><br>random password</span></h1>
         <h2 id="title-two">Never use a insecure password again</h2>
         </div>
         <div class = "section-two">
@@ -13,7 +13,7 @@
         
         <div class="div-char">
         <p id="input-char">Write the password lenght:</p>
-        <input type="number"  id="numar-charactere" oninput="getValue()"></input>
+        <input type="number"  id="numar-charactere" oninput="getValue()">
         </div>
         </div>
         <hr>
@@ -22,8 +22,8 @@
         <p id="outputs-two">F+6ms8d[;QaHeJ-t</p>
         </div>
         <div class="buttons-div">
-        <button id="copy-but" >Copy Password</button>
-        <button id="copy-but" >Copy Password</button>
+        <button id="copy-but-one" onclick="copyPass('#outputs-one')">Copy Password</button>
+        <button id="copy-but-two" onclick="copyPass('#outputs-two')">Copy Password</button>
         </div>
         <script src="index.js"></script>
         </div>

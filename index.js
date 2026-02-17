@@ -10,10 +10,7 @@ let maxChar = document.getElementById("numar-charactere");
 
 
 function getValue(){
-    
-    //maxChar = document.getElementById("numar-charactere").value ;
-    let n = parseInt(maxChar.value);
-    console.log(n);
+    let n = parseInt(maxChar.value, 10);
     if (n<1 || isNaN(n))
     return 0;
     else
@@ -25,39 +22,35 @@ function getChars(){
     return characters[n];
 }
 
-function generateString(){
+function generateString(len){
     let s = "";
-    if(getValue()===0){
-        return "Try with a number bigger then 0!";
-    }else{
-        for(let i=0; i<getValue(); i++){
+    for(let i=0; i<len; i++){
         s+=getChars();
     }
     return s;
     }
     
-}
+
 
 function render(){
-    
-        outputsOne.textContent=generateString();
-        outputsTwo.textContent=generateString();
+    let n =getValue();
+    if(n===0){
+        return "Try with a number bigger then 0!";
+    }else{
+        outputsOne.textContent=generateString(n);
+        outputsTwo.textContent=generateString(n);
+    }
+}
+
+function copyPass(p){
+    let tag = document.querySelector(p).textContent;
+    navigator.clipboard.writeText(tag)
+    .then(() => console.log('Text copied'))
+    .catch(err => console.error('Failed to copy:', err))
+    //alert("Copied the password: " + m);
+
 }
 
 
-
-
-// function copyPass(password) {
-  
-
-//   // Select the text field
-//   password.select();
-  
-//    // Copy the text inside the text field
-//   navigator.clipboard.writeText(password.value);
-
-//   // Alert the copied text
-//   alert("Copied the text: " + password.value);
-// }
 
 

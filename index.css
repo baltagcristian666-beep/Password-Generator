@@ -104,7 +104,7 @@ hr{
     gap: 8px; 
 }
 
-#copy-but{
+#copy-but-one, #copy-but-two{
     margin: 0;
 }
 .buttons-div{
