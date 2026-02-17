@@ -103,3 +103,14 @@ hr{
     flex-direction: column; /* text deasupra, input dedesubt */
     gap: 8px; 
 }
+
+#copy-but{
+    margin: 0;
+}
+.buttons-div{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;  
+    padding-left: 20px;
+    padding-right: 20px;
+}

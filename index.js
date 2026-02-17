@@ -4,51 +4,60 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 let outputsOne = document.querySelector("#outputs-one");
 let outputsTwo = document.getElementById("outputs-two");
+let maxChar = document.getElementById("numar-charactere");
 
-let maxChar = 0;
 
 
-function generate(){
-    outputsOne.textContent = "";
-    outputsTwo.textContent = "";
-   let passwordArrayOne = [];
-   let passwordArrayTwo = [];
-   
-   if(getValue()<1){
-    for(let i=0; i<16; i++){
-            let currentNumber = Math.floor(Math.random()*characters.length);
-            let currentNumberTwo = Math.floor(Math.random()*characters.length);
-            passwordArrayOne.push(characters[currentNumber]);
-            outputsOne.textContent += passwordArrayOne[i] ;
-            passwordArrayTwo.push(characters[currentNumberTwo]);
-            outputsTwo.textContent += passwordArrayTwo[i] ;
-        }
-   } else if(getValue()){
-    for(let i=0; i<getValue(); i++){
-            let currentNumber = Math.floor(Math.random()*characters.length);
-            let currentNumberTwo = Math.floor(Math.random()*characters.length);
-            passwordArrayOne.push(characters[currentNumber]);
-            outputsOne.textContent += passwordArrayOne[i] ;
-            passwordArrayTwo.push(characters[currentNumberTwo]);
-            outputsTwo.textContent += passwordArrayTwo[i] ;
-        }
-        
-   }
-    // console.log(passwordArrayOne);
-    // console.log(passwordArrayTwo);
-     
-    
-}
 
 function getValue(){
     
-    maxChar = document.getElementById("numar-charactere").value ;
-    return maxChar;
+    //maxChar = document.getElementById("numar-charactere").value ;
+    let n = parseInt(maxChar.value);
+    console.log(n);
+    if (n<1 || isNaN(n))
+    return 0;
+    else
+    return n;
+}
+
+function getChars(){
+    let n = Math.floor(Math.random()*characters.length);
+    return characters[n];
+}
+
+function generateString(){
+    let s = "";
+    if(getValue()===0){
+        return "Try with a number bigger then 0!";
+    }else{
+        for(let i=0; i<getValue(); i++){
+        s+=getChars();
+    }
+    return s;
+    }
+    
+}
+
+function render(){
+    
+        outputsOne.textContent=generateString();
+        outputsTwo.textContent=generateString();
 }
 
 
 
 
+// function copyPass(password) {
+  
 
+//   // Select the text field
+//   password.select();
+  
+//    // Copy the text inside the text field
+//   navigator.clipboard.writeText(password.value);
+
+//   // Alert the copied text
+//   alert("Copied the text: " + password.value);
+// }
 
 
