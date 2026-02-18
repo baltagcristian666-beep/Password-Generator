@@ -5,6 +5,9 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 let outputsOne = document.querySelector("#outputs-one");
 let outputsTwo = document.getElementById("outputs-two");
 let maxChar = document.getElementById("numar-charactere");
+let symCheck = document.getElementById("sym-check");
+let numCheck = document.getElementById("num-check");
+let filt = document.getElementsByName("filtru");
 
 
 
@@ -17,9 +20,62 @@ function getValue(){
     return n;
 }
 
+function getFilter(){
+    let filtList = [];
+    for(let i=0; i<filt.length; i++){
+        filtList.push(filt[i].checked);
+    }
+    return filtList;
+}
+
+function filter(){
+    let specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~]/;
+    let char = [...characters];
+    console.log("eu0"+char);
+    let fl = getFilter();
+    console.log(fl);
+    if (fl[0] === true && fl[1] === false){
+        for(i=char.length-1; i>=0; i--){
+            if(isNaN(char[i])===false){
+                char.splice(i,1);
+            }
+        }
+         console.log("eu1"+char);
+        return char;
+
+    }else if (fl[0] === false && fl[1] === true){
+        for(i=char.length-1; i>=0; i--){
+            if(specialChars.test(char[i])){
+                char.splice(i,1);
+                
+            }
+        }
+
+         console.log("eu2"+char);
+        return char;
+
+    }else if (fl[0] === false && fl[1] === false){
+         for(i=char.length-1; i>=0; i--){
+            if(isNaN(char[i])===false || specialChars.test(char[i])){
+                char.splice(i,1);
+            }
+        }
+        console.log("eu3"+char);
+        return char;
+
+    }else {
+        console.log("eu4"+char);
+        return char;
+    }
+        
+    
+}
+
 function getChars(){
-    let n = Math.floor(Math.random()*characters.length);
-    return characters[n];
+    let charList = filter();
+    let n = Math.floor(Math.random()*charList.length);
+    //console.log(charList[n]);
+    return charList[n];
 }
 
 function generateString(len){
