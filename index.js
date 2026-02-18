@@ -9,7 +9,7 @@ let symCheck = document.getElementById("sym-check");
 let numCheck = document.getElementById("num-check");
 let filt = document.getElementsByName("filtru");
 
-
+let regex = /[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~]/;
 
 
 function getValue(){
@@ -29,59 +29,61 @@ function getFilter(){
 }
 
 function filter(){
-    let specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~]/;
+    let specialChars = regex;
     let char = [...characters];
-    console.log("eu0"+char);
+    //let char = structuredClone(characters);
+    //console.log("eu0"+char);
     let fl = getFilter();
     console.log(fl);
     if (fl[0] === true && fl[1] === false){
-        for(i=char.length-1; i>=0; i--){
+        for(let i=char.length-1; i>=0; i--){
             if(isNaN(char[i])===false){
                 char.splice(i,1);
             }
         }
-         console.log("eu1"+char);
+        // console.log("eu1"+char);
         return char;
 
     }else if (fl[0] === false && fl[1] === true){
-        for(i=char.length-1; i>=0; i--){
+        for(let i=char.length-1; i>=0; i--){
             if(specialChars.test(char[i])){
                 char.splice(i,1);
                 
             }
         }
 
-         console.log("eu2"+char);
+        // console.log("eu2"+char);
         return char;
 
     }else if (fl[0] === false && fl[1] === false){
-         for(i=char.length-1; i>=0; i--){
+         for(let i=char.length-1; i>=0; i--){
             if(isNaN(char[i])===false || specialChars.test(char[i])){
                 char.splice(i,1);
             }
         }
-        console.log("eu3"+char);
+        //console.log("eu3"+char);
         return char;
 
     }else {
-        console.log("eu4"+char);
+        //console.log("eu4"+char);
         return char;
     }
         
     
 }
 
-function getChars(){
-    let charList = filter();
-    let n = Math.floor(Math.random()*charList.length);
-    //console.log(charList[n]);
-    return charList[n];
-}
+// function getChars(fil){
+//    // let charList = filter();
+//     let n = Math.floor(Math.random()*fil.length);
+//     //console.log(charList[n]);
+//     return fil[n];
+// }
 
-function generateString(len){
+function generateString(len, fil){
     let s = "";
     for(let i=0; i<len; i++){
-        s+=getChars();
+        let n = Math.floor(Math.random()*fil.length);
+        s+=fil[n];
     }
     return s;
     }
@@ -90,11 +92,13 @@ function generateString(len){
 
 function render(){
     let n =getValue();
+    let charList = filter();
+    //console.count("render click");
     if(n===0){
-        return "Try with a number bigger then 0!";
+        alert("Try with a number bigger then 0!");
     }else{
-        outputsOne.textContent=generateString(n);
-        outputsTwo.textContent=generateString(n);
+        outputsOne.textContent=generateString(n, charList);
+        outputsTwo.textContent=generateString(n, charList);
     }
 }
 
