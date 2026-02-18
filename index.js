@@ -30,10 +30,14 @@ function getFilter(){
 
 function filter(){
     let specialChars = regex;
-    let char = [...characters];
+     let fl = getFilter();
     //let char = structuredClone(characters);
+    if (fl[0] === true && fl[1] === true){
+        return characters;
+    }
+    let char = [...characters];
     //console.log("eu0"+char);
-    let fl = getFilter();
+   
     console.log(fl);
     if (fl[0] === true && fl[1] === false){
         for(let i=char.length-1; i>=0; i--){
@@ -64,11 +68,7 @@ function filter(){
         //console.log("eu3"+char);
         return char;
 
-    }else {
-        //console.log("eu4"+char);
-        return char;
     }
-        
     
 }
 
@@ -92,11 +92,12 @@ function generateString(len, fil){
 
 function render(){
     let n =getValue();
-    let charList = filter();
+    
     //console.count("render click");
     if(n===0){
         alert("Try with a number bigger then 0!");
     }else{
+        let charList = filter();
         outputsOne.textContent=generateString(n, charList);
         outputsTwo.textContent=generateString(n, charList);
     }
